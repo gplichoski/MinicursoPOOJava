@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo apt install -y default-jdk
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt update
+sudo apt install oracle-java8-set-default
+sudo apt -y install wget unzip
+wget https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-11.0/incubating-netbeans-11.0-bin.zip
+unzip incubating-netbeans-11.0-bin.zip
+sudo mv netbeans/ /opt/
+export PATH="$PATH:/opt/netbeans/bin/"
