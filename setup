@@ -9,3 +9,8 @@ wget https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incub
 unzip incubating-netbeans-11.0-bin.zip
 sudo mv netbeans/ /opt/
 export PATH="$PATH:/opt/netbeans/bin/"
+sudo apt-get install git
+cd ~
+mkdir NetBeansProjects
+cd NetBeansProjects
+git clone https://github.com/gplichoski/MinicursoPOOJava.git
