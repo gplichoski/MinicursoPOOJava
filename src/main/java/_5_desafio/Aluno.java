@@ -11,7 +11,12 @@ package _5_desafio;
  */
 public class Aluno {
     private String nome;
-    private Integer matricula;
+    public String CPF;
+    
+    Aluno(String nome, String CPF) {
+        this.CPF = CPF;
+        this.nome = nome;
+    }
     
     public String getNome() {
         return nome;
@@ -19,13 +24,5 @@ public class Aluno {
     
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    
-    public Integer getMatricula() {
-        return matricula;
-    }
-    
-    public void setMatricula(Integer matricula) {
-        this.matricula = matricula;
     }
 }

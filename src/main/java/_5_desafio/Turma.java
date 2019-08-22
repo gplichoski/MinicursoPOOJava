@@ -5,25 +5,23 @@
  */
 package _5_desafio;
 
-import java.util.Calendar;
 /**
  *
  * @author g
  */
 public class Turma {
-    private Integer codigo;
-    private String sala;
-    private Calendar horario;
+    public String materia;
+    public Professor professor;
+    private Integer index = 0;
+    public Aluno[] alunos = new Aluno[50];
     
-    public boolean estaAberta() {
-        return true;
+    Turma(String materia, Professor professor) {
+        this.materia = materia;
+        this.professor = professor;
     }
     
-    public void defineProfessor(Professor professor) {
-        
-    }
-    
-    public void incluiAluno(Aluno aluno) {
-        
-    }
+    public void incluirAluno(Aluno aluno) {
+        alunos[index] = aluno;
+        index++;
+    } 
 }

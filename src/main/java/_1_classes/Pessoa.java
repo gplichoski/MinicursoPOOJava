@@ -17,7 +17,7 @@ public class Pessoa {
     }
 
     String apresentaPessoa() {
-        return "Olá, meu nome é " + nomeDaPessoa + "!";
+        return "Ola, meu nome eh " + nomeDaPessoa + "!";
     }
 
     public static void main(String[] args) {
