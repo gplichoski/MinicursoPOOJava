@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package _5_desafio;
+package _5_registro;
 
 /**
  *
@@ -11,7 +11,7 @@ package _5_desafio;
  */
 public class Aluno {
     private String nome;
-    public String CPF;
+    private String CPF;
     
     Aluno(String nome, String CPF) {
         this.CPF = CPF;
@@ -24,5 +24,13 @@ public class Aluno {
     
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public String getCPF() {
+        return CPF;
+    }
+    
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 }

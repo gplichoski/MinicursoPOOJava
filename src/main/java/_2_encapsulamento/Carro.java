@@ -10,7 +10,5 @@ package _2_encapsulamento;
  * @author g
  */
 public class Carro {
-    public static void main(String[] args) {
-
-    }
+ 
 }

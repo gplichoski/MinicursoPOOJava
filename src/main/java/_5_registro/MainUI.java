@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package _5_desafio;
+package _5_registro;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -67,7 +67,7 @@ public class MainUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PP.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         PPLabelRegistroAcademico.setText("Registro Acadêmico");
 
@@ -192,7 +192,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        PNT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PNT.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         PNTLabelAdicionarNovaTurma.setText("Adiciona Nova Turma");
 
@@ -259,7 +259,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PIA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PIA.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         PIALabelIncluirAluno.setText("Incluir Aluno");
 
@@ -366,33 +366,41 @@ public class MainUI extends javax.swing.JFrame {
     private void PNTButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PNTButtonAdicionarActionPerformed
         turmas[index] = new Turma(PNTCampoMateria.getText(), new Professor(PNTCampoProfessor.getText()));
         DefaultTableModel model = (DefaultTableModel) PPTableTurmas.getModel();
-        model.addRow(new Object[]{index, turmas[index].materia, turmas[index].professor.getNome()});
+        model.addRow(new Object[]{index, turmas[index].getMateria(), turmas[index].getProfessor().getNome()});
         index++;
         this.setSize(new Dimension(330, 473));
+        PNTCampoMateria.setText("");
+        PNTCampoProfessor.setText("");
         PNT.setVisible(false);
         PP.setVisible(true); 
     }//GEN-LAST:event_PNTButtonAdicionarActionPerformed
 
     private void PIAButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PIAButtonAdicionarActionPerformed
-       this.setSize(new Dimension(330, 473));
-       Aluno aluno = new Aluno(PIACampoNome.getText(), PIACampoCPF.getText());
-       turmas[selectedIndex].incluirAluno(aluno);
-       PPTableTurmas.clearSelection();
-       PIA.setVisible(false);
-       PP.setVisible(true);
+        this.setSize(new Dimension(330, 473));
+        Aluno aluno = new Aluno(PIACampoNome.getText(), PIACampoCPF.getText());
+        turmas[selectedIndex].incluirAluno(aluno);
+        PPTableTurmas.clearSelection();
+        PIACampoCPF.setText("");
+        PIACampoNome.setText("");
+        PIA.setVisible(false);
+        PP.setVisible(true);
     }//GEN-LAST:event_PIAButtonAdicionarActionPerformed
 
     private void PPIncluirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PPIncluirAlunoActionPerformed
         Integer row = PPTableTurmas.getSelectedRow();
         selectedIndex = (Integer) PPTableTurmas.getValueAt(row, 0);
-        PIA.setLocation(0, 0);
-        this.setSize(new Dimension(290, 164));
-        PP.setVisible(false);
-        PIA.setVisible(true);
+        if (turmas[selectedIndex] != null) {
+            PIA.setLocation(0, 0);
+            this.setSize(new Dimension(290, 164));
+            PP.setVisible(false);
+            PIA.setVisible(true);
+        }
     }//GEN-LAST:event_PPIncluirAlunoActionPerformed
 
     private void PNTButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PNTButtonCancelarActionPerformed
         this.setSize(new Dimension(330, 473));
+        PNTCampoMateria.setText("");
+        PNTCampoProfessor.setText("");
         PNT.setVisible(false);
         PP.setVisible(true);
     }//GEN-LAST:event_PNTButtonCancelarActionPerformed
@@ -403,6 +411,8 @@ public class MainUI extends javax.swing.JFrame {
 
     private void PIAButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PIAButtonCancelarActionPerformed
         this.setSize(new Dimension(330, 473));
+        PIACampoCPF.setText("");
+        PIACampoNome.setText("");
         PIA.setVisible(false);
         PP.setVisible(true);
     }//GEN-LAST:event_PIAButtonCancelarActionPerformed
@@ -416,8 +426,8 @@ public class MainUI extends javax.swing.JFrame {
         model.setRowCount(0);
         Integer row = PPTableTurmas.getSelectedRow();
         selectedIndex = (Integer) PPTableTurmas.getValueAt(row, 0);
-        for (Integer i = 0; i < turmas[selectedIndex].alunos.length; i++) {
-            model.addRow(new Object[]{turmas[selectedIndex].alunos[i].CPF, turmas[selectedIndex].alunos[i].getNome()});
+        for (Integer i = 0; i < turmas[selectedIndex].getAlunos().length; i++) {
+            model.addRow(new Object[]{turmas[selectedIndex].getAlunos()[i].getCPF(), turmas[selectedIndex].getAlunos()[i].getNome()});
         }
     }//GEN-LAST:event_PPTableTurmasMouseClicked
 

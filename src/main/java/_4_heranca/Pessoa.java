@@ -21,9 +21,9 @@ public class Pessoa {
     }
 
     public String apresentaPessoa() {
-        String result = "Olá, meu nome é " + this.nome + "!\n";
+        String result = "Ola, meu nome eh " + this.nome + "!\n";
         result = result + "Eu tenho " + this.idade + " anos.\n";
-        result = result + "E meu CPF é " + this.cpf + ".";
+        result = result + "E meu CPF eh " + this.cpf + ".";
         return result;
     }
 }
